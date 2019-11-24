@@ -1,7 +1,6 @@
 import * as jscodeshift from "jscodeshift";
-import { NodePath } from "recast";
 
-export const update = (path: NodePath) => {
+export const update = (path: any) => {
   const Node = path.value;
 
   Node.openingElement.attributes
