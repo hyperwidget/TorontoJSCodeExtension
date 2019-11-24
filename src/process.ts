@@ -11,6 +11,7 @@ export const update = (path: any) => {
 };
 
 export const updateToGenesis = (value: string) => {
+  console.log(value);
   return jscodeshift(value)
     .find(jscodeshift.JSXElement, {
       openingElement: { name: { name: "Flex" } }

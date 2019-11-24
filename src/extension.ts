@@ -16,36 +16,29 @@ export function activate(context: vscode.ExtensionContext) {
   let disposable = vscode.commands.registerCommand("extension.hellotjs", () => {
     // The code you place here will be executed every time your command is executed
 
-    let disposable = vscode.commands.registerCommand(
-      "extension.genesis",
-      () => {
-        let editor = vscode.window.activeTextEditor;
+    let editor = vscode.window.activeTextEditor;
 
-        if (editor) {
-          let document = editor.document;
+    if (editor) {
+      let document = editor.document;
 
-          const firstLine = document.lineAt(0);
-          const lastLine = document.lineAt(document.lineCount - 1);
-          const textRange = new vscode.Range(
-            0,
-            firstLine.range.start.character,
-            document.lineCount - 1,
-            lastLine.range.end.character
-          );
+      const firstLine = document.lineAt(0);
+      const lastLine = document.lineAt(document.lineCount - 1);
+      const textRange = new vscode.Range(
+        0,
+        firstLine.range.start.character,
+        document.lineCount - 1,
+        lastLine.range.end.character
+      );
 
-          var value = document.getText(); // parse JS code into an AST
+      var value = document.getText(); // parse JS code into an AST
 
-          editor.edit(editBuilder => {
-            editBuilder.replace(textRange, updateToGenesis(value));
-          });
-        }
+      editor.edit(editBuilder => {
+        editBuilder.replace(textRange, updateToGenesis(value));
+      });
+    }
 
-        // Display a message box to the user
-        vscode.window.showInformationMessage(
-          "File update to Genesis syntax 🎉!"
-        );
-      }
-    );
+    // Display a message box to the user
+    vscode.window.showInformationMessage("File update to our new syntax 🎉!");
   });
 
   context.subscriptions.push(disposable);

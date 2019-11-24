@@ -19,6 +19,19 @@
         "command": "extension.hellotjs",
         "title": "Hello TJS"
       }
+    ],
+    "configuration": [
+      {
+        "title": "Genesis Updater",
+        "properties": {
+          "conf.resource.updates-genesis": {
+            "type": "object",
+            "default": {},
+            "description": "Resource configuration: updates specific props on components to a new syntax",
+            "scope": "resource"
+          }
+        }
+      }
     ]
   },
   "scripts": {
