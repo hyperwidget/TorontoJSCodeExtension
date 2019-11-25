@@ -8,9 +8,15 @@ export const update = (path: any) => {
     .forEach((item: any) => {
       item.name.name = "justifyContent";
     });
+
+  Node.openingElement.attributes
+    .filter((obj: any) => obj.name.name === "align")
+    .forEach((item: any) => {
+      item.name.name = "alignContent";
+    });
 };
 
-export const updateToGenesis = (value: string) => {
+export const updateComponents = (value: string) => {
   return jscodeshift(value)
     .find(jscodeshift.JSXElement, {
       openingElement: { name: { name: "Flex" } }

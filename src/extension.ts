@@ -1,7 +1,7 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from "vscode";
-import { updateToGenesis } from "./process";
+import { updateComponents } from "./process";
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -33,7 +33,7 @@ export function activate(context: vscode.ExtensionContext) {
       var value = document.getText(); // parse JS code into an AST
 
       editor.edit(editBuilder => {
-        editBuilder.replace(textRange, updateToGenesis(value));
+        editBuilder.replace(textRange, updateComponents(value));
       });
     }
 
