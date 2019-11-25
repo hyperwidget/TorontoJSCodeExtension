@@ -4,14 +4,13 @@ export const update = (path: any) => {
   const Node = path.value;
 
   Node.openingElement.attributes
-    .filter((obj: any) => obj.name.name === "align")
+    .filter((obj: any) => obj.name.name === "justify")
     .forEach((item: any) => {
-      item.name.name = "alignContent";
+      item.name.name = "justifyContent";
     });
 };
 
 export const updateToGenesis = (value: string) => {
-  console.log(value);
   return jscodeshift(value)
     .find(jscodeshift.JSXElement, {
       openingElement: { name: { name: "Flex" } }
